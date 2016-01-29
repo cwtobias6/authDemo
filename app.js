@@ -61,10 +61,17 @@ app.get("/login", function(req,res){
 });
 
 app.post("/login", passport.authenticate("local", {
-	successRedirect: "/secret",
-	failureRedirect: "/login"
-}) ,function(req,res){
+		successRedirect: "/secret",
+		failureRedirect: "/login"
+	}) ,function(req,res){
 	
+});
+
+// Logout Route
+
+app.get("/logout", function(req,res){
+	req.logout();
+	res.redirect("/");
 });
 
 
