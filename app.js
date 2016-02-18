@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var User = require("./models/user");
+var port = process.env.PORT || 8080;
 
 mongoose.connect("mongodb://localhost/authdemo");
 
@@ -88,10 +89,12 @@ function isLoggedIn(req,res,next) {
 
 
 
-
-
-
-
-app.listen(3000, function () {
-  console.log('The Server has Started!!');
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
 });
+
+
+
+// app.listen(3000, function () {
+//   console.log('The Server has Started!!');
+// });
